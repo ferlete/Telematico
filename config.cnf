@@ -1,0 +1,4 @@
+[client]
+user = <USERNAME_OTRS>
+password =<PASSWD>
+host = <IP_OTRS_DATABASE>
