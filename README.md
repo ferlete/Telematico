@@ -67,7 +67,17 @@ cd /opt
 git clone --recursive https://github.com/ferlete/Telematico
 ```
 
-Crie um arquivo chamado token e cole o token la.
+Salve o token
+```
+cd Telematico
+echo -ne "123456789:AAG90e14-0f8-0f8-40183D-1491dDe" > token
+```
+
+Depois de configurar o token no software, é necessário ajustar os comandos que Bot poderá executar. Para isso edite o arquivo ”commands.sh” de acordo com sua necessidade. Agora inicie o Bot executando o comando:
+
+```
+./telematico.sh start
+```
 
 ### Integrando com OTRS
 
@@ -78,5 +88,11 @@ Edite o arquivo commands.sh e informe os comando
 
 ### Integrando com ZABBIX
 
-Copie o arquivo ferleteBot.sh para /usr/local/share/zabbix/alertscripts e realize a configuração do Zabbix
+Edite o arquivo ”zabbix_bot.sh” informando o token e CHAT ID para onde serão enviados os alertas.
 
+Para conseguir o CHAT ID pare o bot com o comando ”./telematico kill ” e envie mensagem para o Bot através do grupo criado digitando por exemplo ”/start@FerleteBot”.
+
+Acesse o endereço https://api.telegram.org/botTOKEN/getUpdates onde será mostrado
+um XML com esta informação. Substitua na URL a palavra TOKEN de acordo com a informação gerada inicialmente. É possı́vel também utilizar o CHAT ID de um contato especı́fico, para isso envia uma mensagem para o Bot de sua conta do Telegram.
+
+Copie o arquivo zabbix_bot.sh para /usr/local/share/zabbix/alertscripts e realize a configuração do Zabbix.
